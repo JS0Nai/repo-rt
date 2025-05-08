@@ -3,6 +3,8 @@
 [![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+![Repository Mapper Banner](media/banner.png)
+
 **Transform your code repositories into actionable insights for both human understanding and advanced AI analysis.**
 
 `repo-mapper` is a powerful Python-based toolkit designed to scan local repositories or directories. It generates a suite of structured artifacts, enabling deep dives into project architecture, content prioritization for AI models, and efficient codebase navigation. This tool is your first step towards leveraging Large Language Models (LLMs) to understand and interact with your code.
