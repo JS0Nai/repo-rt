@@ -398,3 +398,11 @@ Users are encouraged to inspect and modify these configurations to better suit t
 ## License
 
 This project is licensed under the MIT License.
+
+## Screenshots
+
+![HTML Repository Map](media/sample-html-repo-map.png)
+
+![HTML File View](media/sample-html-file.png)
+
+![Repository File CSV Report](media/sample-repo-file-csv.png)
