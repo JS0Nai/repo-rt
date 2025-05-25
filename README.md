@@ -1,4 +1,4 @@
-# Repository Mapper (`repo-mapper`)
+# Repository Mapper (`repo-rt`)
 
 [![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -7,15 +7,15 @@
 
 **Transform your code repositories into actionable insights for both human understanding and advanced AI analysis.**
 
-`repo-mapper` is a powerful Python-based toolkit designed to scan local repositories or directories. It generates a suite of structured artifacts, enabling deep dives into project architecture, content prioritization for AI models, and efficient codebase navigation. This tool is your first step towards leveraging Large Language Models (LLMs) to understand and interact with your code.
+`repo-rt` is a powerful Python-based toolkit designed to scan local repositories or directories. It generates a suite of structured artifacts, enabling deep dives into project architecture, content prioritization for AI models, and efficient codebase navigation. This tool is your first step towards leveraging Large Language Models (LLMs) to understand and interact with your code.
 
-## The `repo-mapper` Philosophy
+## The `repo-rt` Philosophy
 
-Understanding complex codebases is a significant challenge. `repo-mapper` addresses this by:
+Understanding complex codebases is a significant challenge. `repo-rt` addresses this by:
 
 1.**Comprehensive Artifact Generation:** Creating multiple views of your repository – from interactive HTML for human browsing to structured data optimized for AI.
 2.**Intelligent Content Prioritization:** A key feature is the "selective map," which intelligently includes, truncates, or omits file content based on configurable heuristics, ensuring AI models receive the most relevant information within their context limits.
-3.**Facilitating LLM Interaction:** While `repo-mapper` itself does not make LLM API calls, it produces outputs specifically designed to be fed into an LLM. This README provides detailed instructions for guiding an LLM to analyze these outputs and generate its own comprehensive understanding report (`repo-rt.md`).
+3.**Facilitating LLM Interaction:** While `repo-rt` itself does not make LLM API calls, it produces outputs specifically designed to be fed into an LLM. This README provides detailed instructions for guiding an LLM to analyze these outputs and generate its own comprehensive understanding report (`repo-rt.md`).
 
 ## Features
 
@@ -36,9 +36,9 @@ Understanding complex codebases is a significant challenge. `repo-mapper` addres
 
 **Helper Scripts (within `scripts/`):**
 
-    *   `map_repo.sh`: Convenience script for running repo-mapper with all output formats.
+    *   `map_repo.sh`: Convenience script for running repo-rt with all output formats.
     *   `ai_analysis_example.py`: Example script demonstrating AI integration workflow.
-    *   `custom_config_example.py`: Template for customizing repo-mapper's behavior.
+    *   `custom_config_example.py`: Template for customizing repo-rt's behavior.
 
 **Intelligent Scanning & Processing:**
 
@@ -60,37 +60,37 @@ Understanding complex codebases is a significant challenge. `repo-mapper` addres
 
 ## Documentation
 
-* **[Quick Start Guide](docs/quickstart.md)**: A concise guide to get up and running quickly with repo-mapper.
+* **[Quick Start Guide](docs/quickstart.md)**: A concise guide to get up and running quickly with repo-rt.
 * **[Detailed Usage Guide](docs/usage_guide.md)**: Comprehensive documentation on all features and customization options.
-* **Main README (this file)**: Overview of repo-mapper's features and general setup instructions.
+* **Main README (this file)**: Overview of repo-rt's features and general setup instructions.
 
 ## Setup
 
-1. **Place `repo-mapper` Folder:**
-    Copy the entire `repo-mapper` folder (containing `src_mapper/`, `README.md`, etc.) into the root directory of the project repository you wish to analyze.
+1. **Place `repo-rt` Folder:**
+    Copy the entire `repo-rt` folder (containing `src_mapper/`, `README.md`, etc.) into the root directory of the project repository you wish to analyze.
 
         ```bash
     your-project/
     ├── .git/         # Your project's Git directory
     ├── src/          # Your project's source
     ├── ...
-    ├── repo-mapper/  <-- Place the folder here
+    ├── repo-rt/  <-- Place the folder here
     │   ├── src_mapper/
     │   ├── README.md
     │   └── (output/ will be created here)
     └── .gitignore    # Your project's .gitignore
          ```
 
-2. **Open Terminal:** Navigate *into* the `repo-mapper` directory within your project.
+2. **Open Terminal:** Navigate *into* the `repo-rt` directory within your project.
 
         ```bash
-    cd path/to/your-project/repo-mapper
+    cd path/to/your-project/repo-rt
         ```
 
 3. **Create and Activate Virtual Environment (Highly Recommended):**
 
         ```bash
-        # Create venv (run once per project where you use repo-mapper)
+        # Create venv (run once per project where you use repo-rt)
         python3 -m venv venv_mapper
 
         # Activate venv (run each time you open a new terminal in this folder)
@@ -107,7 +107,7 @@ Understanding complex codebases is a significant challenge. `repo-mapper` addres
 4. **Install Dependencies (Required for AI Analysis Script):**
 
         ```bash
-        # From the repo-mapper directory with venv active
+        # From the repo-rt directory with venv active
         python3 -m pip install -r requirements.txt
         ```
 
@@ -117,10 +117,10 @@ Understanding complex codebases is a significant challenge. `repo-mapper` addres
 
 ### Option 1: Using the Helper Script (Recommended)
 
-The easiest way to run repo-mapper is to use the `run_mapper.sh` helper script, which handles Python command differences automatically:
+The easiest way to run repo-rt is to use the `run_mapper.sh` helper script, which handles Python command differences automatically:
 
     ```bash
-    # From the repo-mapper directory
+    # From the repo-rt directory
     ./scripts/run_mapper.sh [target_path] [options]
     ```
 
@@ -138,7 +138,7 @@ This script automatically detects whether your system has `python` or `python3` 
 
 ### Option 2: Direct Execution
 
-Alternatively, you can run the primary script `main_orchestrator.py` located inside the `src_mapper/` directory directly. Ensure your virtual environment is active and you are in the `repo-mapper` directory.
+Alternatively, you can run the primary script `main_orchestrator.py` located inside the `src_mapper/` directory directly. Ensure your virtual environment is active and you are in the `repo-rt` directory.
 
 **Command Structure:**
 
@@ -150,7 +150,7 @@ Alternatively, you can run the primary script `main_orchestrator.py` located ins
 
     Use .. to map the parent directory (your main project). (Most common usage)
 
-    Use . to map the repo-mapper directory itself.
+    Use . to map the repo-rt directory itself.
 
     Use any relative or absolute path.
 
@@ -166,11 +166,11 @@ Alternatively, you can run the primary script `main_orchestrator.py` located ins
 
     --all: Generate all available artifact types.
 
-    --output-dir <path>: Specify a custom output directory (defaults to repo-mapper/output/).
+    --output-dir <path>: Specify a custom output directory (defaults to repo-rt/output/).
 
     --include-git-info: Include last Git commit information (hash, author, date, message) in the CSV report. Requires git to be installed.
 
-    Examples (Run from inside your-project/repo-mapper/):
+    Examples (Run from inside your-project/repo-rt/):
 
     Generate all artifacts for the parent project:
 
@@ -222,7 +222,7 @@ Use code with caution.
 Bash
 IGNORE_WHEN_COPYING_END
 
-    All outputs will be in the `repo-mapper/output/` directory.
+    All outputs will be in the `repo-rt/output/` directory.
 
 2.  **Option 1: Automated LLM Analysis**
 
@@ -282,7 +282,7 @@ IGNORE_WHEN_COPYING_END
     * **Troubleshooting:** If you encounter "ModuleNotFoundError: No module named 'requests'", ensure you're running the command in the activated virtual environment and that you've installed the dependencies with the same Python used to run the script.
 
 3.  **Option 2: Manual LLM Analysis (Any LLM)**
-    *Locate the generated files in the `repo-mapper/output/` directory.
+    *Locate the generated files in the `repo-rt/output/` directory.
     *   Open the following files and be ready to copy their full content:
         *Your project's main `README.md` content (if its full content was included in the selective map, you can note that when instructing the LLM).
         *   `{repo_name}-structure.txt`
@@ -290,7 +290,7 @@ IGNORE_WHEN_COPYING_END
         *   `{repo_name}-selective_map.json`
     *Note the **absolute path** to your project's root directory (e.g., `/Users/yourname/projects/your-project`).
     *   Open your preferred LLM chat interface (e.g., within your IDE).
-    *Copy the **entire content** of the "LLM Repository Analysis Instructions" block provided in the `LLM_Analysis_Prompt_Template.md` file at the root of the repo-mapper directory.
+    *Copy the **entire content** of the "LLM Repository Analysis Instructions" block provided in the `LLM_Analysis_Prompt_Template.md` file at the root of the repo-rt directory.
     *   Paste the instruction block into the chat.
     ***Crucially, replace the placeholders** within the instruction block with:
         *   The absolute path to your repository.
@@ -301,14 +301,14 @@ IGNORE_WHEN_COPYING_END
 
     * The LLM will generate the Markdown content for the `repo-rt.md` report.
     * Review the generated report for accuracy and completeness.
-    * Save this content as `repo-rt.md` in your main `repo-mapper/` directory (not the `output/` subdirectory). This file now becomes your primary, AI-generated reference for the repository.
+    * Save this content as `repo-rt.md` in your main `repo-rt/` directory (not the `output/` subdirectory). This file now becomes your primary, AI-generated reference for the repository.
 
 **Further Interaction & On-Demand File Reading:**
 
     * You can now ask the LLM more specific questions about the codebase, referencing its own `repo-rt.md` report or the initial artifacts.
     * If the LLM (or you) identify a need to see the full content of a file listed in the "Areas for Deeper Review" section of `repo-rt.md` (or any other truncated/omitted file), you can then introduce the **File-Reading Tool**. Instructions and the code snippet for this tool are provided in the "AI Tool Integration: On-Demand File Content Retrieval" section below.
 
-The full prompt template is also available as a separate file called `LLM_Analysis_Prompt_Template.md` in the root of the repo-mapper directory for easy copying and editing.
+The full prompt template is also available as a separate file called `LLM_Analysis_Prompt_Template.md` in the root of the repo-rt directory for easy copying and editing.
 
 ### AI Tool Integration: On-Demand File Content Retrieval
 
